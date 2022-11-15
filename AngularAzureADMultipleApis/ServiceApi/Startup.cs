@@ -43,7 +43,7 @@ namespace ServiceApi
 
                     // Validate id of application for which the token was created
                     // In this case the UI application 
-                    validateAccessTokenPolicy.RequireClaim("azp", "2b50a014-f353-4c10-aace-024f19a55569");
+                    validateAccessTokenPolicy.RequireClaim("azp", "0384055c-9c8a-4043-86aa-589b69078ba2");
 
                     // only allow tokens which used "Private key JWT Client authentication"
                     // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens

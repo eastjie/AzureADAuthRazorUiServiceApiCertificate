@@ -70,7 +70,7 @@ namespace ApiWithMutlipleApis
                 {
                     // Validate ClientId from token
                     // only accept tokens issued ....
-                    validateAccessTokenPolicy.RequireClaim("azp", "ad6b0351-92b4-4ee9-ac8d-3e76e5fd1c67");
+                    validateAccessTokenPolicy.RequireClaim("azp", "07b92ac7-c663-4277-b832-7ed3b94dd093");
                 });
             });
 

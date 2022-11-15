@@ -9,7 +9,7 @@ using Microsoft.Identity.Web;
 namespace ApiWithMutlipleApis.Controllers
 {
     [Authorize(Policy = "ValidateAccessTokenPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [AuthorizeForScopes(Scopes = new string[] { "api://2b50a014-f353-4c10-aace-024f19a55569/access_as_user" })]
+    [AuthorizeForScopes(Scopes = new string[] { "api://63604bb3-5bb5-4fd3-ba20-f2f094abeb33/access_as_user" })]
     [ApiController]
     [Route("[controller]")]
     public class DelegatedUserApiCallsController : ControllerBase
