@@ -24,29 +24,37 @@ namespace ApiWithMutlipleApis.Services
         public async Task<IEnumerable<string>> GetApiDataAsync()
         {
 
-            var client = _clientFactory.CreateClient();
-
-            var scope = "api://b178f3a5-7588-492a-924f-72d7887b7e48/.default"; // CC flow access_as_application";
-            var accessToken = await _tokenAcquisition.GetAccessTokenForAppAsync(scope)
-                .ConfigureAwait(false);
-
-            client.BaseAddress = new Uri("https://localhost:44324");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            var response = await client.GetAsync("ApiForServiceData");
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var data = await JsonSerializer.DeserializeAsync<List<string>>(
-                    await response.Content.ReadAsStreamAsync());
+                var client = _clientFactory.CreateClient();
 
-                if(data != null)
-                    return data;
+                var scope = "https://sandboxb2ctesting.onmicrosoft.com/36e49583-c2f5-47c6-b78b-2762de43a9c7/.default"; // CC flow access_as_application";
+                var accessToken = await _tokenAcquisition.GetAccessTokenForAppAsync(scope)
+                    .ConfigureAwait(false);
 
-                return Array.Empty<string>();
+                client.BaseAddress = new Uri("https://localhost:44324");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = await client.GetAsync("ApiForServiceData");
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await JsonSerializer.DeserializeAsync<List<string>>(
+                        await response.Content.ReadAsStreamAsync());
+
+                    if (data != null)
+                        return data;
+
+                    return Array.Empty<string>();
+                }
+
+                throw new ApplicationException("oh no...");
             }
+            catch (Exception ex)
+            {
 
-            throw new ApplicationException("oh no...");
+                throw ex;
+            }
         }
     }
 }

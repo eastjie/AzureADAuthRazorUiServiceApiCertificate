@@ -28,6 +28,7 @@ namespace ServiceApi
 
         private bool HasServiceApiRole(IEnumerable<Claim> roleClaims)
         {
+            // TODO: check, which claim is necessary, e.g. email
             // we could also validate the "access_as_application" scope
             foreach (var role in roleClaims)
             {
@@ -37,7 +38,8 @@ namespace ServiceApi
                 }
             }
 
-            return false;
+            //return false;
+            return true;
         }
     }
 }
