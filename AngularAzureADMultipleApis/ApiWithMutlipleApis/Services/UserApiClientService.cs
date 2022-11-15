@@ -26,7 +26,7 @@ namespace ApiWithMutlipleApis.Services
 
             var client = _clientFactory.CreateClient();
 
-            var scopes = new List<string> { "api://b2a09168-54e2-4bc4-af92-a710a64ef1fa/access_as_user" };
+            var scopes = new List<string> { "https://sandboxb2ctesting.onmicrosoft.com/c22eded9-98a1-498e-bc16-f49d6fb20b13/access_as_user" };
             var accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
             client.BaseAddress = new Uri("https://localhost:44395");
