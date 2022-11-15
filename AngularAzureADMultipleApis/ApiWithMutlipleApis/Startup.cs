@@ -70,7 +70,8 @@ namespace ApiWithMutlipleApis
                 {
                     // Validate ClientId from token
                     // only accept tokens issued ....
-                    validateAccessTokenPolicy.RequireClaim("azp", "ad6b0351-92b4-4ee9-ac8d-3e76e5fd1c67");
+                    // TODO: here is client Id of frontend, but is it required in Proxy API??
+                    validateAccessTokenPolicy.RequireClaim("azp", "023c584e-d58f-4700-bc1f-1f1c6e1bf2f2");
                 });
             });
 

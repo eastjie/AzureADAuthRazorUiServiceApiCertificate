@@ -17,11 +17,20 @@ namespace ApiWithMutlipleApis.Services
 
         public async Task<User> GetGraphApiUser()
         {
-            return await _graphServiceClient
-                .Me
-                .Request()
-                .WithScopes("User.ReadBasic.All", "user.read")
-                .GetAsync();
+            try
+            {
+                var test = await _graphServiceClient.Users.Request().Filter($"DisplayName eq 'Jie SSO'").GetAsync();
+                return await _graphServiceClient
+                    .Me
+                    .Request()
+                    .WithScopes("User.ReadWrite.All") // Here, some difference between Azure AD and B2C
+                                                      //.WithScopes("User.ReadBasic.All") //, "user.read")
+                    .GetAsync();
+            }
+            catch (Exception ex )
+            {
+                throw ex;
+            }
         }
 
         public async Task<string> GetGraphApiProfilePhoto()

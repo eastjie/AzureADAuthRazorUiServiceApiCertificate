@@ -8,7 +8,7 @@ namespace ApiWithMutlipleApis.Controllers
 {
     [Authorize(Policy = "ValidateAccessTokenPolicy",
         AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [AuthorizeForScopes(Scopes = new string[] { "api://2b50a014-f353-4c10-aace-024f19a55569/access_as_user" })]
+    [AuthorizeForScopes(Scopes = new string[] { "https://sandboxb2ctesting.onmicrosoft.com/73a141b6-7f79-4103-831b-be53d2766a19/access_as_user" })]
     [ApiController]
     [Route("[controller]")]
     public class DirectApiController : ControllerBase
@@ -18,5 +18,7 @@ namespace ApiWithMutlipleApis.Controllers
         {
             return new List<string> { "some data", "more data", "loads of data" };
         }
+
+        
     }
 }

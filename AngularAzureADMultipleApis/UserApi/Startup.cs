@@ -46,7 +46,7 @@ namespace UserApiOne
                 {
                     // Validate id of application for which the token was created
                     // In this case the UI application 
-                    validateAccessTokenPolicy.RequireClaim("azp", "2b50a014-f353-4c10-aace-024f19a55569");
+                    validateAccessTokenPolicy.RequireClaim("azp", "73a141b6-7f79-4103-831b-be53d2766a19");
 
                     // only allow tokens which used "Private key JWT Client authentication"
                     // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens

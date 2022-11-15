@@ -38,11 +38,11 @@ import { AuthorizationGuard } from './authorization.guard';
   ], { relativeLinkResolution: 'legacy' }),
   AuthModule.forRoot({
     config: {
-      authority: 'https://login.microsoftonline.com/7ff95b15-dc21-4ba6-bc92-824856578fc1/v2.0',
-      authWellknownEndpointUrl: 'https://login.microsoftonline.com/7ff95b15-dc21-4ba6-bc92-824856578fc1/v2.0',
+      authority: 'https://login.microsoftonline.com/574e2370-5ce2-4577-aaf9-436dc0ea6656/v2.0',
+      authWellknownEndpointUrl: 'https://login.microsoftonline.com/574e2370-5ce2-4577-aaf9-436dc0ea6656/v2.0',
       redirectUrl: window.location.origin,
-      clientId: 'ad6b0351-92b4-4ee9-ac8d-3e76e5fd1c67',
-      scope: 'openid profile email api://2b50a014-f353-4c10-aace-024f19a55569/access_as_user offline_access',
+      clientId: '023c584e-d58f-4700-bc1f-1f1c6e1bf2f2',
+      scope: 'openid profile email https://sandboxb2ctesting.onmicrosoft.com/73a141b6-7f79-4103-831b-be53d2766a19/access_as_user offline_access',
       responseType: 'code',
       silentRenew: true,
       useRefreshToken: true,

@@ -9,7 +9,8 @@ using Microsoft.Identity.Web;
 namespace ApiWithMutlipleApis.Controllers
 {
     [Authorize(Policy = "ValidateAccessTokenPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [AuthorizeForScopes(Scopes = new string[] { "User.ReadBasic.All", "user.read" })]
+    //[AuthorizeForScopes(Scopes = new string[] { "User.ReadBasic.All", "user.read" })]
+    [AuthorizeForScopes(Scopes = new string[] { "User.ReadWrite.All" })] 
     [ApiController]
     [Route("[controller]")]
     public class GraphApiCallsController : ControllerBase
